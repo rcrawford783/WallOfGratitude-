@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wall of Gratitude</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/submit.js" defer></script>
+</head>
+<body>
+  <main class="submit-page">
+    <section class="panel">
+      <header>
+        <div class="heart" aria-hidden="true">&#10084;</div>
+        <h1>Wall of Gratitude</h1>
+        <p class="muted">Thank a coworker, give a shout-out, or share something you appreciate about someone.</p>
+      </header>
+
+      <form id="form" novalidate>
+        <div id="error" class="form-error" role="alert" hidden></div>
+
+        <div class="field">
+          <label for="to">Who is this for?</label>
+          <input id="to" name="to" maxlength="100" autocomplete="off" placeholder="Their name" required>
+        </div>
+
+        <div class="field">
+          <label for="message">Your message</label>
+          <textarea id="message" name="message" maxlength="500" placeholder="Thank you for..." required></textarea>
+          <div class="hint"><span></span><span id="count">0 / 500</span></div>
+        </div>
+
+        <div class="field">
+          <label for="from">Your name</label>
+          <input id="from" name="from" maxlength="100" autocomplete="name" required>
+          <div class="hint">Only the organizer sees this. Messages are displayed and printed anonymously.</div>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" id="submit" class="cta">Send some gratitude</button>
+        </div>
+      </form>
+
+      <div id="thanks" class="thanks" hidden>
+        <div class="heart" aria-hidden="true">&#10084;</div>
+        <h2>Thank you!</h2>
+        <p class="muted">Your message was added to the wall.</p>
+        <button type="button" id="again">Write another</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
