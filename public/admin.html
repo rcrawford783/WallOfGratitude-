@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gratitude Admin</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/admin.js" defer></script>
+</head>
+<body>
+  <main class="admin-page">
+    <div class="admin-header no-print">
+      <h1>Wall of Gratitude &mdash; Admin</h1>
+      <span class="muted" id="total">Loading...</span>
+    </div>
+
+    <div class="tabs no-print" role="tablist">
+      <button role="tab" id="tab-entries" aria-selected="true" aria-controls="entries">Entries</button>
+      <button role="tab" id="tab-print" aria-selected="false" aria-controls="print">Print cards</button>
+    </div>
+
+    <section id="entries" role="tabpanel">
+      <div class="toolbar">
+        <div class="grow">
+          <label for="search">Search</label>
+          <input id="search" type="search" placeholder="Filter by name or message">
+        </div>
+        <button class="secondary" id="refresh">Refresh</button>
+        <a class="button secondary" href="/api/compliments.csv">Download CSV</a>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>To</th><th>Message</th><th>From</th><th>Submitted</th><th></th></tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+        <div id="empty" class="empty" hidden>No compliments yet.</div>
+      </div>
+    </section>
+
+    <section id="print" role="tabpanel" hidden>
+      <div class="toolbar no-print">
+        <div>
+          <label for="order">Order</label>
+          <select id="order">
+            <option value="recipient">Grouped by recipient</option>
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+          </select>
+        </div>
+        <div>
+          <label for="cols">Columns per page</label>
+          <select id="cols">
+            <option value="2">2</option>
+            <option value="3" selected>3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div>
+          <label for="size">Text size</label>
+          <select id="size">
+            <option value="9pt">Small</option>
+            <option value="11pt" selected>Medium</option>
+            <option value="13pt">Large</option>
+          </select>
+        </div>
+        <button id="print-btn" class="cta">Print</button>
+      </div>
+      <p class="muted no-print">Cards are anonymous and pack together to fill each page. Cut along the dashed lines.</p>
+      <div id="cards" class="cards"></div>
+    </section>
+  </main>
+</body>
+</html>

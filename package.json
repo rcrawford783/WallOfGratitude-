@@ -1,0 +1,13 @@
+{
+  "name": "wall-of-gratitude",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Collect and print compliments for coworkers at the party.",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "share": "node --env-file-if-exists=.env scripts/share.js"
+  },
+  "engines": {
+    "node": ">=22.9"
+  }
+}
